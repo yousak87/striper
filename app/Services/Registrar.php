@@ -21,6 +21,9 @@ class Registrar implements RegistrarContract {
                     'password' => 'required|confirmed|min:6',
                     'user_name' => 'required|unique:users',
                     'nrp' => 'required|unique:users',
+                    'status_karyawan'=>'required',
+                    'jenis_karyawan'=>'required',
+                        
         ]);
     }
 
@@ -31,13 +34,15 @@ class Registrar implements RegistrarContract {
      * @return User
      */
     public function create(array $data) {
+
         return User::create([
                     'nama_lengkap' => $data['nama_lengkap'],
                     'user_name' => $data['user_name'],
                     'nrp' => $data['nrp'],
-                    'status_karywan' => $data['status_karyawan'],
-                    'jenis_karywan' => $data['jenis_karyawan'],
+                    'status_karyawan' => $data['status_karyawan'],
+                    'jenis_karyawan' => $data['jenis_karyawan'],
                     'email' => $data['email'],
+                    'level' => '2',
                     'password' => bcrypt($data['password']),
         ]);
     }

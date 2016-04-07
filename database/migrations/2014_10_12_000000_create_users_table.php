@@ -19,8 +19,8 @@ class CreateUsersTable extends Migration {
             $table->string('email')->unique();
             $table->string('password');
             $table->integer('status_karyawan');
-            $table->integer('jenis_karyawan');
-            $table->integer('level');
+            $table->string('jenis_karyawan');
+            $table->string('level');
             $table->rememberToken();
             $table->timestamps();
         });

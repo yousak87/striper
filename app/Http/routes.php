@@ -19,3 +19,11 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+//data user
+Route::get('userData', 'userData@index');
+
+Route::get('editUser/{id}', 'userData@editUser');
+Route::post('editUser', 'userData@saveEditUser');
+
+Route::get('deleteUser/{id}', 'userData@deleteUser');
