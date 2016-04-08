@@ -64,8 +64,9 @@
                                     <th>Email</th>
                                     <th>Status Karyawan</th>
                                     <th>Jenis Karyawan</th>
+                                    @if(Session::get('level')=='2')
                                     <th>Edit/Delete</th>
-
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -75,24 +76,24 @@
                                     <td>{{$user->user_name}}</td>
                                     <td>{{$user->nrp}}</td>
                                     <td>{{$user->email}}</td>
-                                    <td>{{$user->status_karyawan}}</td>
-                                    <td>{{$user->jenis_karyawan}}</td>
-                                    <td><a href="{{ action('userData@editUser',$user->id) }}" class="btn btn-block btn-primary">Edit</a></td>
-                                    <td><a  href="{{ action('userData@deleteUser',$user->id) }}" class="btn btn-block btn-danger" >Delete</a></td>
+                                    <td><?= $user->status_karyawan == '1' ? 'Karyawan' : 'Kontrak' ?></td>
+                                    <td><?php
+                                        if ($user->jenis_karyawan == '1') {
+                                            echo 'Striper';
+                                        } elseif ($user->jenis_karyawan == '2') {
+                                            echo 'Repair Jig';
+                                        }else{
+                                            echo '';
+                                        }
+                                        ?></td>
+                                    @if(Session::get('level')=='2')
+                                    <td><a href="{{ action('userData@editUser',$user->id) }}" class="btn btn-block btn-primary">Edit</a><a  href="{{ action('userData@deleteUser',$user->id) }}" class="btn btn-block btn-danger" >Delete</a></td>
+                                    @endif
 
                                 </tr>
                                 @endforeach
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Nama</th>
-                                    <th>User Name</th>
-                                    <th>Nrp</th>
-                                    <th>Email</th>
-                                    <th>Status Karyawan</th>
-                                    <th>Jenis Karyawan</th>
-                                </tr>
-                            </tfoot>
+
                         </table>
 
                     </div>

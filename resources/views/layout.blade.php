@@ -255,7 +255,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs"> {{Session::get('nama_lengkap')}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -263,8 +263,8 @@
                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  {{Session::get('nama_lengkap')}}
+                  <small>Member since {{Session::get('join_date')}}</small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -312,7 +312,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>{{Session::get('nama_lengkap')}}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -335,7 +335,7 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="/dashboard"><i class="fa fa-circle-o"></i> Dashboard</a></li>
+            
             <li><a href="/userData"><i class="fa fa-circle-o"></i> User Data</a></li>
           </ul>
         </li>

@@ -31,7 +31,7 @@ class userData extends Controller {
         } elseif (Session::get('token') != Session::get('password')) {
             return Redirect::to('login')->withErrors('Error : Please Login First');
         } else {
-            $users = DB::table('users')->where('id','<>',Session::get('id_karyawan'))->get();
+            $users = DB::table('users')->get();
             return view("userData", ['users' => $users]);
         }
     }

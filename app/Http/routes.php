@@ -28,7 +28,7 @@ Route::controllers([
 ]);
 
 //dashboard
-Route::get('dashboard', 'pages@index');
+
 Route::get('logout', 'pages@logout');
 
 

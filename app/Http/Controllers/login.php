@@ -60,7 +60,7 @@ class login extends Controller {
                 break;
             case '3' : return Redirect::to('login')->withErrors('error : combination email and password is not right');
                 break;
-            case '1' : return Redirect::to('dashboard');
+            case '1' : return Redirect::to('userData');
                 break;
             default : return Redirect::to('login')->withErrors('error : something wrong');
                 break;
@@ -87,6 +87,10 @@ class login extends Controller {
             Session::put('email', $cekUser[0]->email);
             Session::put('token', $cekUser[0]->password);
             Session::put('password', $cekUser[0]->password);
+            Session::put('join_date', date("M, Y", strtotime($cekUser[0]->created_at)));
+            Session::put('level', $cekUser[0]->level);
+            
+            
             return '1';
         }
     }
