@@ -6,6 +6,7 @@
   <title>AdminLTE 2 | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <script src="{{ URL::asset('plugins/jQuery/jQuery-2.2.0.min.js')}}"></script>
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="{{ URL::asset('bootstrap/css/bootstrap.min.css')}}">
   <!-- Font Awesome -->
@@ -287,7 +288,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="{{ url('/auth/logout') }}" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{{ url('logout') }}" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -334,7 +335,7 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="/home"><i class="fa fa-circle-o"></i> Dashboard</a></li>
+            <li class="active"><a href="/dashboard"><i class="fa fa-circle-o"></i> Dashboard</a></li>
             <li><a href="/userData"><i class="fa fa-circle-o"></i> User Data</a></li>
           </ul>
         </li>
@@ -549,8 +550,7 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery 2.2.0 -->
-<script src="{{ URL::asset('plugins/jQuery/jQuery-2.2.0.min.js')}}"></script>
+
 <!-- jQuery UI 1.11.4 -->
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

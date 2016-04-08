@@ -36,13 +36,13 @@
                     </div>
                     @endif
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('register') }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                         <div class="form-group">
                             <label class="col-md-4 control-label">Nama Lengkap</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="nama_lengkap" value="{{ old('nama_lengkap') }}">
+                                <input type="text" autofocus class="form-control" name="nama_lengkap" value="{{ old('nama_lengkap') }}">
                             </div>
                         </div>
 
@@ -82,6 +82,7 @@
                             <label class="col-md-4 control-label">Jenis Karyawan</label>
                             <div class="col-md-6">
                                 <select name="jenis_karyawan" id="jenis_karyawan">
+                                    <option value="">Pilih Jenis Karyawan</option>
                                     <option value="1">Stripter</option>
                                     <option value="2">Repair Jig</option>
                                 </select> 

@@ -1,7 +1,18 @@
 @extends('layout')
 @section('content')
 
+<script>
 
+    function confirmDelete() {
+        var r = confirm("Aren you sure delete this data!");
+        if (r === true) {
+            return false;
+        } else {
+            return false;
+        }
+    }
+
+</script>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -20,6 +31,21 @@
 
     <!-- Main content -->
     <section class="content">
+        @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+        @endif
+        @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
@@ -52,7 +78,7 @@
                                     <td>{{$user->status_karyawan}}</td>
                                     <td>{{$user->jenis_karyawan}}</td>
                                     <td><a href="{{ action('userData@editUser',$user->id) }}" class="btn btn-block btn-primary">Edit</a></td>
-                                    <td><a href="{{ action('userData@deleteUser',$user->id) }}" class="btn btn-block btn-danger">Delete</a></td>
+                                    <td><a  href="{{ action('userData@deleteUser',$user->id) }}" class="btn btn-block btn-danger" >Delete</a></td>
 
                                 </tr>
                                 @endforeach

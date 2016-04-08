@@ -12,6 +12,13 @@
 */
 
 Route::get('/', 'login@index');
+Route::get('login', 'login@index');
+Route::post('login', 'login@doLogin');
+
+
+Route::get('register', 'register@index');
+Route::post('register', 'register@create');
+
 
 Route::get('home', 'HomeController@index');
 
@@ -19,6 +26,11 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+//dashboard
+Route::get('dashboard', 'pages@index');
+Route::get('logout', 'pages@logout');
+
 
 //data user
 Route::get('userData', 'userData@index');
