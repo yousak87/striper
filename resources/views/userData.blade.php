@@ -1,6 +1,20 @@
 @extends('layout')
 @section('content')
+<link rel="stylesheet" href="{{URL::asset('dataTable.css')}}">
+<link rel="stylesheet" href="{{URL::asset('responsive.css')}}">
 
+<script src="{{ URL::asset('dataTable.js')}}"></script>
+<script src="{{ URL::asset('responsive.js')}}"></script>
+
+<script>
+$(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+        
+        "responsive": true
+    });
+});
+</script>
 <script>
 
     function confirmDelete() {
@@ -82,7 +96,7 @@
                                             echo 'Striper';
                                         } elseif ($user->jenis_karyawan == '2') {
                                             echo 'Repair Jig';
-                                        }else{
+                                        } else {
                                             echo '';
                                         }
                                         ?></td>
