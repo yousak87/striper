@@ -289,7 +289,7 @@
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
                                         <div class="pull-left">
-                                            <a href="profile" class="btn btn-default btn-flat">Profile</a>
+                                            <a href="{{ action('userProfile@index') }}" class="btn btn-default btn-flat">Profile</a>
                                         </div>
                                         <div class="pull-right">
                                             <a href="{{ url('logout') }}" class="btn btn-default btn-flat">Sign out</a>
@@ -317,7 +317,7 @@
                         </div>
                         <div class="pull-left info">
                             <p>{{Session::get('nama_lengkap')}}</p>
-                            <a href="profile"><i class="fa fa-circle text-success"></i> Online</a>
+                            <a href="{{ action('userProfile@index') }}"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
                         <br><br>
                     </div>
@@ -341,7 +341,7 @@
                             </a>
                             <ul class="treeview-menu">
 
-                                <li><a href="/userData"><i class="fa fa-circle-o"></i> User Data List</a></li>
+                                <li><a href="{{ action('userData@index') }}"><i class="fa fa-circle-o"></i> User Data List</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -393,7 +393,7 @@
                 <div class="pull-right hidden-xs">
                     <b>Version</b> 2.3.3
                 </div>
-                <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+                <strong>Copyright &copy; 2014-2015 <a href="http://haibugs.com">Haibugs</a>.</strong> All rights
                 reserved.
             </footer>
 
