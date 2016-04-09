@@ -24,7 +24,11 @@ class login extends Controller {
      * @return Response
      */
     public function index() {
-        return view("auth/login");
+        if (Session::get('token') != '') {
+            return Redirect::to('userData')->withErrors('Error : you are already login');
+        } else {
+            return view("auth/login");
+        }
     }
 
     /**
@@ -72,10 +76,10 @@ class login extends Controller {
      *
      * @return Response
      */
-     public function cekUser($userdata) {
-        
+    public function cekUser($userdata) {
+
         $cekUser = DB::table('users')->where('email', '=', $userdata['email'])->get();
-        
+
         //dd(Crypt::decrypt($cekUser[0]->password) != Crypt::decrypt($userdata['password']));
         if (!$cekUser) {
             return '0';
@@ -89,8 +93,9 @@ class login extends Controller {
             Session::put('password', $cekUser[0]->password);
             Session::put('join_date', date("M, Y", strtotime($cekUser[0]->created_at)));
             Session::put('level', $cekUser[0]->level);
-            
-            
+            Session::put('gambar', $cekUser[0]->gambar);
+
+
             return '1';
         }
     }

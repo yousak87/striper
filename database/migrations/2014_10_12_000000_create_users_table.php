@@ -21,8 +21,10 @@ class CreateUsersTable extends Migration {
             $table->integer('status_karyawan');
             $table->string('jenis_karyawan');
             $table->string('level');
+            $table->string('gambar');
             $table->rememberToken();
             $table->timestamps();
+            
         });
     }
 

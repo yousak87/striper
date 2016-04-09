@@ -31,6 +31,17 @@
     <!-- Main content -->
     <section class="content">
         <div class="col-xs-12">
+           
+            <div class="login-logo">
+                <a href="#"><b>Edit</b>User Data</a>
+            </div>
+            <!-- /.login-logo -->
+            <div class="login-box-body">
+                 @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+            @endif
             @if (count($errors) > 0)
             <div class="alert alert-danger">
                 <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -41,16 +52,22 @@
                 </ul>
             </div>
             @endif
-            <div class="login-logo">
-                <a href="#"><b>Edit</b>User Data</a>
-            </div>
-            <!-- /.login-logo -->
-            <div class="login-box-body">
                 <p class="login-box-msg">change your data</p>
+                <img class="profile-user-img img-responsive img-circle" src="{{ URL::asset('uploads')}}/{{$users->gambar}}" alt="User profile picture">
 
-                <form class="form-horizontal" role="form" method="POST" action="{{ action('userData@saveEditUser')}}">
+                <h3 class="profile-username text-center">{{Session::get('nama_lengkap')}}</h3>
+
+
+                <form class="form-horizontal" role="form" enctype="multipart/form-data" method="POST" action="{{ action('userProfile@editSave')}}">
+
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                     <input type="hidden" name="id_karyawan" value="{{ $users->id }}">
+                    <input type="hidden" name="id_karyawan" value="{{ $users->id }}">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Ganti Avatar</label>
+                        <div class="col-md-6">
+                            <input type="file" name="avatar" id="avatar">
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="col-md-4 control-label">Nama Lengkap</label>
                         <div class="col-md-6">
@@ -86,7 +103,7 @@
                         <div class="col-md-6">
                             <select name="status_karyawan" id="status_karyawan">
                                 <option value="1" <?= $users->status_karyawan == "1" ? "selected" : "" ?>>Karyawan</option>
-                                <option value="2" <?= $users->status_karyawan =="2" ? "selected" : "" ?>>Kontrak</option>
+                                <option value="2" <?= $users->status_karyawan == "2" ? "selected" : "" ?>>Kontrak</option>
                             </select> 
                         </div>
                     </div>

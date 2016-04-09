@@ -24,7 +24,12 @@ class register extends Controller {
      * @return Response
      */
     public function index() {
-        return view('auth/register');
+        if (Session::get('token') != '') {
+            return Redirect::to('userData')->withErrors('Error : you are already login');
+        } else {
+            return view('auth/register');
+        }
+       
     }
 
     /**
@@ -66,6 +71,7 @@ class register extends Controller {
                     'status_karyawan' => $data['status_karyawan'],
                     'level' => '1',
                     'created_at' => $data['date'],
+                    'gambar' => 'avatar.png',
                 ]
         );
 
